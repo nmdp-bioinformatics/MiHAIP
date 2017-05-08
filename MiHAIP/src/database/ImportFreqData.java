@@ -26,7 +26,7 @@ public class ImportFreqData {
         while(sn.hasNext()){
         	String line = sn.nextLine();
         	String [] data = line.split("\t");
-        	freqData freq = new freqData(data[4].trim(), data[5].trim());
+        	freqData freq = new freqData(data[4].trim(), data[6].trim());
         	DatabaseUtil.insertFreqData(data[0], data[2], freq.getAfreq(), freq.getTfreq(), freq.getCfreq(), freq.getGfreq());
         }
         DatabaseUtil.cleanUp();
