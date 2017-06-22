@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by wwang on 10/16/16.
+ * Chop the protein to peptide by using the predicted cleavage sites. The .pep file then used for downstream HLA affinity prediction. Others info about the peptide were stored in metadata sets.
  */
 public class Clevage {
     ArrayList<Integer> location = new ArrayList<>();
