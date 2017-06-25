@@ -21,6 +21,8 @@ public class Compare {
 		sb.append(FileHelp.getVcfevalPath());
 		sb.append(" -t ");
 		sb.append(String.format("%s/rtg-tools-3.6.2/GRCh38.sdf", Configure.tool));
+		// Switch reference version
+		//sb.append(String.format("%s/rtg-tools-3.6.2/hg19.sdf", Configure.tool));
 		System.out.println(sb.toString());
 		new Executor().executeCommand(sb.toString());
 		
