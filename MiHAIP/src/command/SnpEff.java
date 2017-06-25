@@ -16,6 +16,8 @@ public class SnpEff {
 		StringBuilder sb = new StringBuilder();
 		//create annotated output fp
 		sb.append(String.format("java -jar %s/snpEff/snpEff.jar GRCh38.82 ", Configure.tool));
+		// Switch reference version
+		// sb.append(String.format("java -jar %s/snpEff/snpEff.jar GRCh37.75 ", Configure.tool));
 		sb.append(FileHelp.getSnpeffInputFp());
 		sb.append(" -t -canon -onlyProtein ");
 		
@@ -29,6 +31,8 @@ public class SnpEff {
 		//create annotated output fn
 		sb = new StringBuilder();
 		sb.append(String.format("java -jar %s/snpEff/snpEff.jar GRCh38.82 ", Configure.tool));
+		// Switch reference version
+		// sb.append(String.format("java -jar %s/snpEff/snpEff.jar GRCh37.75 ", Configure.tool));
 		sb.append(FileHelp.getSnpeffInputFn());
 		sb.append(" -t -canon -onlyProtein ");
 		try {
