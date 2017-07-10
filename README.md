@@ -11,6 +11,8 @@ MiHAs are considered as well as targets for immunotherapy. At least 100 MiHAs wi
 Therefore, comprehensive identification of dominant repertoire of MiHA and TSA is a reliable strategy for immunotherapy to augment GVL and prevent GVHD.
 
 
+
+
 ## 1. Design of Minor Histocompatibility Antigen Identification Pipeline
 
 The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools[6], snpEff[7], netchop3.1[8] and netMHCpan3.0[9] to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
@@ -28,7 +30,10 @@ _A genomic workflow to identify known and novel outcomes-associated variants. Ra
 Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
 The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
 MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
-   
+  
+  
+  
+  
 ## 2. Pre-installation
 
 a. Install `RTGtools` from REAL TIME GENOMICS:
@@ -82,6 +87,9 @@ wget http://www.cbs.dtu.dk/services/NetMHCpan-3.0/data.tar.gz
 tar -xvf data.tar.gz
 ```
 
+
+
+
 ## 3. Set environment variables
 
 ```unix 
@@ -93,6 +101,9 @@ export NETMHCpan=/Path/to/Tools/netMHCpan-3.0
 ../netMHCpan test.fsa > test.fsa.myout
 ../netMHCpan -hlaseq B0702.fsa test.fsa > test.fsa_userMHC.myout
 ```
+
+
+
 
 ## 4. Install MiHAIP and build database
 a. Copy MiHAIP_1.4.5.tar.gz and cds.db from /Volumes/bioxover/users/wwang/MiHAIP_released
@@ -122,6 +133,9 @@ Generate an output file named filteredFile.txt
 ```unix 
 java -jar ./MiHAIP1.4.5.jar/Tools/freq2db.jar filteredFile.txt
 ```
+
+
+
 ## 5. Test the Pipeline by Sample Data
 For testing the MiHA identification pipeline, you could use a pair of sample data from: /Volumes/bioxover/users/wwang/MiHAIP_released
 Copy all the executable programs (netChop-3.1, netMHCpan-3.0, RTG.jar and snpEff.jar) into the directory ./MiHAIP1.4.5/Tools.
@@ -140,6 +154,9 @@ java -jar MiHAIP0.3.3.jar -d /path/to/input/Donor.vcf.gz -r /path/to/input/Recip
 ```
 
 The program takes ~5min run through sample data ( average 22min for full genome data), then check the predicted results from ./path/to/output/predicted 
+
+
+
 
 
 ## References:
