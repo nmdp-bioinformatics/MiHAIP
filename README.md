@@ -2,7 +2,7 @@
 
 Allogeneic hematopoietic stem cell transplantation (alloHSCT) can be a curative therapy for hematological malignancies. This approach cures a significant percentage of patients via graft-versus-leukemia (GVL) effect[1-3]. Unfortunately, the desired GVL effect is often accompanied with undesired graft-versus-host disease (GVHD)[4]. 
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens.png =250x)
-<img src="https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens.png" alt="Drawing" style="width: 200px;"/>
+<img src="https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens.png" alt="Drawing" style="width: 100px;"/>
 
 After HLA-matched alloHSCT, GVL and GVHD are both mediated by donor-derived T-cells recognizing polymorphic peptides presented by HLA molecules on recipient antigen present cells (APCs).These polymorphic peptides can be tumor-specific antigens (TSAs) or neoantigens, produced by tumor-mediated mutations, mostly contribute GVL effect. It can also be minor histocompatibility antigens (MiHAs), which are produced by genetic differences between donor and recipient and cause GVHD. The expression level and tissue distribution ofMiHA are proved factors in transplant effects, GVL and GVHD.
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHApresentedByHLA.png =250x)
