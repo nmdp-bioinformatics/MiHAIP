@@ -21,14 +21,12 @@ Therefore, comprehensive identification of dominant repertoire of MiHA and TSA i
 A genomic workflow to identify known and novel outcomes-associated variants. Raw sequence data were processed as described (Methods) to generate a single binary alignment (BAM) and variant call format (VCF) file per sample. Comparative analysis of donor-recipient pairs resulted in a single VCF file containing patient-specific variants, which were annotated further. Male recipients with female donors were treated separately to analyze variants on the Y chromosome.
 </center>
 
-   Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
-   The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
-   MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
+
+Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
+The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
+MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
    
 ## 2. Pre-installation
-![alt tag](https://github.com/wwang-nmdp/MiHAIP/blob/ReleaseVersion/Untitled.png)
-Figure 1. Flowchart of MiHAidentification pipeline
-
 
 a. Install `RTGtools` from REAL TIME GENOMICS:
 
@@ -142,12 +140,12 @@ The program takes ~5min run through sample data ( average 22min for full genome 
 
 
 ## References:
-Copelan, E.A., Hematopoietic stem-cell transplantation. N Engl J Med, 2006. 354(17): p. 1813-26.
-2.	Horowitz, M.M., et al., Graft-versus-leukemia reactions after bone marrow transplantation. Blood, 1990. 75(3): p. 555-62.
-3.	Miller, J.S., et al., NCI First International Workshop on The Biology, Prevention, and Treatment of Relapse After Allogeneic Hematopoietic Stem Cell Transplantation: Report from the Committee on the Biology Underlying Recurrence of Malignant Disease following Allogeneic HSCT: Graft-versus-Tumor/Leukemia Reaction. Biol Blood Marrow Transplant, 2010. 16(5): p. 565-86.
-4.	Ferrara, J.L., et al., Graft-versus-host disease. Lancet, 2009. 373(9674): p. 1550-61.
-5.	Gooley, T.A., et al., Reduced mortality after allogeneic hematopoietic-cell transplantation. N Engl J Med, 2010. 363(22): p. 2091-101.
-6.Cleary, J.G., et al., Joint variant and de novo mutation identification on pedigrees from high-throughput sequencing data. J Comput Biol, 2014. 21(6): p. 405-19.
-7.	Cingolani, P., et al., A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3. Fly (Austin), 2012. 6(2): p. 80-92.
-8.	Kesmir, C., et al., Prediction of proteasome cleavage motifs by neural networks. Protein Eng, 2002. 15(4): p. 287-96.
-9.	Nielsen, M. and M. Andreatta, NetMHCpan-3.0; improved prediction of binding to MHC class I molecules integrating information from multiple receptor and peptide length datasets. Genome Med, 2016. 8(1): p. 33.
+[1] Copelan, E.A., Hematopoietic stem-cell transplantation. N Engl J Med, 2006. 354(17): p. 1813-26.
+[2]	Horowitz, M.M., et al., Graft-versus-leukemia reactions after bone marrow transplantation. Blood, 1990. 75(3): p. 555-62.
+[3]	Miller, J.S., et al., NCI First International Workshop on The Biology, Prevention, and Treatment of Relapse After Allogeneic Hematopoietic Stem Cell Transplantation: Report from the Committee on the Biology Underlying Recurrence of Malignant Disease following Allogeneic HSCT: Graft-versus-Tumor/Leukemia Reaction. Biol Blood Marrow Transplant, 2010. 16(5): p. 565-86.
+[4]	Ferrara, J.L., et al., Graft-versus-host disease. Lancet, 2009. 373(9674): p. 1550-61.
+[5]	Gooley, T.A., et al., Reduced mortality after allogeneic hematopoietic-cell transplantation. N Engl J Med, 2010. 363(22): p. 2091-101.
+[6] Cleary, J.G., et al., Joint variant and de novo mutation identification on pedigrees from high-throughput sequencing data. J Comput Biol, 2014. 21(6): p. 405-19.
+[7]	Cingolani, P., et al., A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3. Fly (Austin), 2012. 6(2): p. 80-92.
+[8]	Kesmir, C., et al., Prediction of proteasome cleavage motifs by neural networks. Protein Eng, 2002. 15(4): p. 287-96.
+[9]	Nielsen, M. and M. Andreatta, NetMHCpan-3.0; improved prediction of binding to MHC class I molecules integrating information from multiple receptor and peptide length datasets. Genome Med, 2016. 8(1): p. 33.
