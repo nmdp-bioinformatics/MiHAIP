@@ -18,9 +18,11 @@ The MiHA identification pipeline integrates diverse biological data sources incl
    
 Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAIP_workflow_updated%202.png)
-<center>
-A genomic workflow to identify known and novel outcomes-associated variants. Raw sequence data were processed as described (Methods) to generate a single binary alignment (BAM) and variant call format (VCF) file per sample. Comparative analysis of donor-recipient pairs resulted in a single VCF file containing patient-specific variants, which were annotated further. Male recipients with female donors were treated separately to analyze variants on the Y chromosome.
-</center>
+
+_A genomic workflow to identify known and novel outcomes-associated variants. Raw sequence data were processed as described (Methods) to generate a single binary alignment (BAM) and variant call format (VCF) file per sample. Comparative analysis of donor-recipient pairs resulted in a single VCF file containing patient-specific variants, which were annotated further. Male recipients with female donors were treated separately to analyze variants on the Y chromosome._
+
+
+
 
 
 Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
