@@ -13,8 +13,14 @@ Therefore, comprehensive identification of dominant repertoire of MiHA and TSA i
 
 ## 1. Design of Minor Histocompatibility Antigen Identification Pipeline
 
-   The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools (ref), snpEff (ref), netchop3.1 and netMHCpan3.0 to predict the potential MiHAs by comparing the variants between transplanted donor and recipient. Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
+   The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools[6], snpEff[7], netchop3.1[8] and netMHCpan3.0[9] to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
+   #(Note: all the list tools would require individual users to decide their license situation and take proper action)# 
+   Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAIP_workflow_updated%202.png)
+<center>
+A genomic workflow to identify known and novel outcomes-associated variants. Raw sequence data were processed as described (Methods) to generate a single binary alignment (BAM) and variant call format (VCF) file per sample. Comparative analysis of donor-recipient pairs resulted in a single VCF file containing patient-specific variants, which were annotated further. Male recipients with female donors were treated separately to analyze variants on the Y chromosome.
+</center>
+
    Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
    The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
    MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
@@ -120,7 +126,7 @@ For testing the MiHA identification pipeline, you could use a pair of sample dat
 Copy all the executable programs (netChop-3.1, netMHCpan-3.0, RTG.jar and snpEff.jar) into the directory ./MiHAIP1.4.5/Tools.
 Copy the input files into ./path/to/input. Caution: the input files should include the .vcf.gz and index file .vcf.gz.tbi
 ## Note: 
-Give a unique pair ID for each run, e.g. -pid 1; 
+Assign a unique pair ID for each run, e.g. -pid 1; 
 The sex needs to be defined donor's sex follow recipient's sex, e.g. -sex MM, which means male donor to male recipient. It helps to find HY. 
 The HLA types should include all 6 alleles and separated by comma (there is no space in between alleles).
 -t argument points the path to tools box.
@@ -133,3 +139,15 @@ java -jar MiHAIP0.3.3.jar -d /path/to/input/Donor.vcf.gz -r /path/to/input/Recip
 ```
 
 The program takes ~5min run through sample data ( average 22min for full genome data), then check the predicted results from ./path/to/output/predicted 
+
+
+## References:
+Copelan, E.A., Hematopoietic stem-cell transplantation. N Engl J Med, 2006. 354(17): p. 1813-26.
+2.	Horowitz, M.M., et al., Graft-versus-leukemia reactions after bone marrow transplantation. Blood, 1990. 75(3): p. 555-62.
+3.	Miller, J.S., et al., NCI First International Workshop on The Biology, Prevention, and Treatment of Relapse After Allogeneic Hematopoietic Stem Cell Transplantation: Report from the Committee on the Biology Underlying Recurrence of Malignant Disease following Allogeneic HSCT: Graft-versus-Tumor/Leukemia Reaction. Biol Blood Marrow Transplant, 2010. 16(5): p. 565-86.
+4.	Ferrara, J.L., et al., Graft-versus-host disease. Lancet, 2009. 373(9674): p. 1550-61.
+5.	Gooley, T.A., et al., Reduced mortality after allogeneic hematopoietic-cell transplantation. N Engl J Med, 2010. 363(22): p. 2091-101.
+6.Cleary, J.G., et al., Joint variant and de novo mutation identification on pedigrees from high-throughput sequencing data. J Comput Biol, 2014. 21(6): p. 405-19.
+7.	Cingolani, P., et al., A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3. Fly (Austin), 2012. 6(2): p. 80-92.
+8.	Kesmir, C., et al., Prediction of proteasome cleavage motifs by neural networks. Protein Eng, 2002. 15(4): p. 287-96.
+9.	Nielsen, M. and M. Andreatta, NetMHCpan-3.0; improved prediction of binding to MHC class I molecules integrating information from multiple receptor and peptide length datasets. Genome Med, 2016. 8(1): p. 33.
