@@ -13,19 +13,19 @@ Therefore, comprehensive identification of dominant repertoire of MiHA and TSA i
 
 ## 1. Design of Minor Histocompatibility Antigen Identification Pipeline
 
-   The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools[6], snpEff[7], netchop3.1[8] and netMHCpan3.0[9] to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
+The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools[6], snpEff[7], netchop3.1[8] and netMHCpan3.0[9] to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
    **(Note: all the list tools would require individual users to decide their license situation and take proper action)**
    
-    Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
+Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAIP_workflow_updated%202.png)
 <center>
 A genomic workflow to identify known and novel outcomes-associated variants. Raw sequence data were processed as described (Methods) to generate a single binary alignment (BAM) and variant call format (VCF) file per sample. Comparative analysis of donor-recipient pairs resulted in a single VCF file containing patient-specific variants, which were annotated further. Male recipients with female donors were treated separately to analyze variants on the Y chromosome.
 </center>
 
 
-    Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
-    The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
-    MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
+Two genome comparison: RTGtools were applied to compare the whole genome sequencing data between donor and recipient.
+The variants’ effect annotation: snpEff was used to annotate the variants’ effects. 
+MiHA prediction algorithms: The proteasomal processing prediction by netChop3.1 and MHC class I binding prediction was performed by netMHCpan3
    
 ## 2. Pre-installation
 
