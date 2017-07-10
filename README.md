@@ -1,10 +1,10 @@
 # Minor Histocompatibility Antigen Identification Pipeline (MiHAIP)
 
 Allogeneic hematopoietic stem cell transplantation (alloHSCT) can be a curative therapy for hematological malignancies. This approach cures a significant percentage of patients via graft-versus-leukemia (GVL) effect[1-3]. Unfortunately, the desired GVL effect is often accompanied with undesired graft-versus-host disease (GVHD)[4]. 
-![alt text](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens.png)
+![alt text](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens.png | width=100)
 
 After HLA-matched alloHSCT, GVL and GVHD are both mediated by donor-derived T-cells recognizing polymorphic peptides presented by HLA molecules on recipient antigen present cells (APCs).These polymorphic peptides can be tumor-specific antigens (TSAs) or neoantigens, produced by tumor-mediated mutations, mostly contribute GVL effect. It can also be minor histocompatibility antigens (MiHAs), which are produced by genetic differences between donor and recipient and cause GVHD. The expression level and tissue distribution ofMiHA are proved factors in transplant effects, GVL and GVHD.
-![alt text](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHApresentedByHLA.png)
+![alt text](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHApresentedByHLA.png | width=100)
 
 MiHAs are considered as well as targets for immunotherapy. At least 100 MiHAs with HLA-restriction have been validated across the genome including male-specific, Y chromosome-encoded antigens, which affect sex-mismatched HSCT-related outcomes[5].
 
