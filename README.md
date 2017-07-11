@@ -133,6 +133,8 @@ java -jar ./MiHAIP1.4.5.jar/Tools/filterFreq.jar snp144Common.txt
 ```
 Generate an output file named filteredFile.txt
 
+Run the freq2db which import the minor allele frequence data from filteredFile.txt into the cds.db
+
 ```unix 
 java -jar ./MiHAIP1.4.5.jar/Tools/freq2db.jar filteredFile.txt
 ```
