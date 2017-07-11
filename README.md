@@ -158,7 +158,7 @@ cp /Volumes/bioxover/users/wwang/MiHAIP_released/*vcf* /path/to/your/input/direc
 java -jar MiHAIP0.3.3.jar -d /path/to/input/Donor.vcf.gz -r /path/to/input/Recipient.vcf.gz -pid 1 -sex MM -hla A02:01,A02:01,B07:02,B14:02,C07:02,C08:02 -t /path/to/Tools/ -o /path/to/output
 ```
 
-The program takes ~5min run through sample data ( average 22min for full genome data), then check the predicted results from ./path/to/output/predicted 
+The program takes ~5min run through sample data ( average 22min for a whole genome), then check the predicted results from ./path/to/output/predicted 
 
 
 
