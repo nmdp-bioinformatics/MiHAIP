@@ -1,4 +1,4 @@
-# Minor Histocompatibility Antigen Identification Pipeline (MiHAIP)
+# Minor Histocompatibility Antigen Identification Pipeline (MiHAIP) [![Build Status](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME}.png?branch=master)](https://travis-ci.org/{ORG-or-USERNAME}/{REPO-NAME})
 
 Allogeneic hematopoietic stem cell transplantation (alloHSCT) can be a curative therapy for hematological malignancies. This approach cures a significant percentage of patients via graft-versus-leukemia (GVL) effect[1-3]. Unfortunately, the desired GVL effect is often accompanied with undesired graft-versus-host disease (GVHD)[4]. 
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens3.png)
