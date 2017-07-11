@@ -118,6 +118,9 @@ java -jar MiHAIP1.4.5.jar -help
 ```
 
 c. Build database
+
+
+
 cds.db is pre-built hg38 transcriptome and minor allele frequence (version:snp147common) database.
 
 You could build you own minor allele frequency database by using other versions. 
