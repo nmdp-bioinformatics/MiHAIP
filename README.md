@@ -103,9 +103,31 @@ export NETMHCpan=/Path/to/Tools/netMHCpan-3.0
 ```
 
 
+## 4. Build database
 
 
-## 4. Install MiHAIP and build database
+
+cds.db is pre-built hg38 transcriptome and minor allele frequence (version:snp147common) database.
+
+Build you own minor allele frequency database by using lastest versions. 
+Go to http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ download the SNP dataset. For example, snp147common
+
+```unix 
+wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/snp147Common.txt.gz
+gunzip snp147Common.txt.gz
+
+java -jar ./MiHAIP1.4.5.jar/Tools/filterFreq.jar snp147Common.txt
+```
+Generate an output file named filteredFile.txt
+
+Run the freq2db which import the minor allele frequence data from filteredFile.txt into the cds.db
+
+```unix 
+java -jar ./MiHAIP1.4.5.jar/Tools/freq2db.jar filteredFile.txt
+```
+
+
+## 5. Install MiHAIP
 a. Copy MiHAIP_1.4.5.tar.gz and cds.db from /Volumes/bioxover/users/wwang/MiHAIP_released
 
 ```unix 
@@ -117,37 +139,15 @@ b. Read documentation
 java -jar MiHAIP1.4.5.jar -help
 ```
 
-c. Build database
-
-
-
-cds.db is pre-built hg38 transcriptome and minor allele frequence (version:snp147common) database.
-
-You could build you own minor allele frequency database by using other versions. 
-Go to http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ download the SNP dataset. For example, snp144common
-
-```unix 
-wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/snp144Common.txt.gz
-gunzip snp144Common.txt.gz
-java -jar ./MiHAIP1.4.5.jar/Tools/filterFreq.jar snp144Common.txt
-```
-Generate an output file named filteredFile.txt
-
-Run the freq2db which import the minor allele frequence data from filteredFile.txt into the cds.db
-
-```unix 
-java -jar ./MiHAIP1.4.5.jar/Tools/freq2db.jar filteredFile.txt
-```
-
-
-
-## 5. Test the Pipeline by Sample Data
+## 6. Test the Pipeline by Sample Data
 For testing the MiHA identification pipeline, you could use a pair of sample data from: /Volumes/bioxover/users/wwang/MiHAIP_released
 Copy all the executable programs (netChop-3.1, netMHCpan-3.0, RTG.jar and snpEff.jar) into the directory ./MiHAIP1.4.5/Tools.
 Copy the input files into ./path/to/input. Caution: the input files should include the .vcf.gz and index file .vcf.gz.tbi
+
+
 ## Note: 
 Assign a unique pair ID for each run, e.g. -pid 1; 
-The sex needs to be defined donor's sex follow recipient's sex, e.g. -sex MM, which means male donor to male recipient. It helps to find HY. 
+The sex needs to be defined donor's sex follow recipient's sex, e.g. -sex MM, which means male donor to male recipient. It helps to find Y chromosome encoded MiHAs (H-Y). 
 The HLA types should include all 6 alleles and separated by comma (there is no space in between alleles).
 -t argument points the path to tools box.
 Set the directory of output files by using -o   
