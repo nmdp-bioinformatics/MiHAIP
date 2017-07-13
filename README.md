@@ -1,12 +1,12 @@
 # Minor Histocompatibility Antigen Identification Pipeline (MiHAIP)
 
-Allogeneic hematopoietic stem cell transplantation (alloHSCT) can be a curative therapy for hematological malignancies. This approach cures a significant percentage of patients via graft-versus-leukemia (GVL) effect**[1-3]**. Unfortunately, the desired GVL effect is often accompanied with undesired graft-versus-host disease (GVHD)**[4]**. 
+Allogeneic hematopoietic stem cell transplantation (alloHSCT) can be a curative therapy for hematological malignancies. This approach cures a significant percentage of patients via graft-versus-leukemia (GVL) effect[1-3]. Unfortunately, the desired GVL effect is often accompanied with undesired graft-versus-host disease (GVHD)[4]. 
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHAandNeoantigens3.png)
 
 After HLA-matched alloHSCT, GVL and GVHD are both mediated by donor-derived T-cells recognizing polymorphic peptides presented by HLA molecules on recipient antigen present cells (APCs).These polymorphic peptides can be tumor-specific antigens (TSAs) or neoantigens, produced by tumor-mediated mutations, mostly contribute GVL effect. It can also be minor histocompatibility antigens (MiHAs), which are produced by genetic differences between donor and recipient and cause GVHD. The expression level and tissue distribution ofMiHA are proved factors in transplant effects, GVL and GVHD.
 ![](https://github.com/wwang-nmdp/MiHAIP/blob/master/MiHAIP/Pictures/MiHApresentedByHLA2.png)
 
-MiHAs are considered as well as targets for immunotherapy. At least 100 MiHAs with HLA-restriction have been validated across the genome including male-specific, Y chromosome-encoded antigens, which affect sex-mismatched HSCT-related outcomes*[5]*.
+MiHAs are considered as well as targets for immunotherapy. At least 100 MiHAs with HLA-restriction have been validated across the genome including male-specific, Y chromosome-encoded antigens, which affect sex-mismatched HSCT-related outcomes[5].
 
 Therefore, comprehensive identification of dominant repertoire of MiHA and TSA is a reliable strategy for immunotherapy to augment GVL and prevent GVHD.
 
@@ -15,7 +15,7 @@ Therefore, comprehensive identification of dominant repertoire of MiHA and TSA i
 
 ## 1. Design of Minor Histocompatibility Antigen Identification Pipeline
 
-The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools**[6]**, snpEff**[7]**, netchop3.1**[8]** and netMHCpan3.0**[9]** to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
+The MiHA identification pipeline integrates diverse biological data sources include whole genome sequencing data, HLA genotyping, clinical outcomes,  tissue-specific expression data, known MiHAs data and minor allele frequencies, as well as integrates multiple 3rd party software include RTGtools[6], snpEff[7], netchop3.1[8] and netMHCpan3.0[9] to predict the potential MiHAs by comparing the variants between transplanted donor and recipient.
    **(Note: all the list tools would require individual users to decide their license situation and take proper action)**
    
 Meanwhile, the pipeline simulates the antigen processing and presenting on recipients’ cell surface via restricted HLA molecules. For details of pipeline please check the flowchart:
