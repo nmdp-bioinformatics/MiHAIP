@@ -1,3 +1,4 @@
+# Large files, needs user directly download from NCBI and build the database by using provided jar program
 MiHAIP/cds.db
 MiHAIP/Homo_sapiens.GRCh38.cds.all.fa
 MiHAIP/importDB.txt
