@@ -34,9 +34,12 @@ public class FileHelp {
     public static String getProteinPath() {
         return getOutput() + "protein/";
     }
+    public static String getYproteinPath() {
+        return getOutput() + "Yprotein/";
+    }
     
     public static String getYproteinFile(){
-    	return getProteinPath() + "yProtein.txt";
+    	return getYproteinPath() + Configure.getPairID()+"yProtein.txt";
     }
     
     public static void makeFolders(){
@@ -49,6 +52,7 @@ public class FileHelp {
     	makeFolder(getOutput() + "/compared");
     	makeFolder(getOutput() + "/missense");
     	makeFolder(getOutput() + "/cleavaged");
+    	makeFolder(getOutput() + "/Ycleavaged");
     	makeFolder(getOutput() + "/chopMeta");
     	makeFolder(getOutput() + "/affinity");
     	makeFolder(getOutput() + "/chopped");
@@ -104,6 +108,9 @@ public class FileHelp {
     
     public static String getCleavageFile(){
     	return getOutput() + "cleavaged/" + Configure.getPairID() + "_cleavaged.txt";
+    }
+    public static String getYCleavageFile(){
+    	return getOutput() + "Ycleavaged/" + Configure.getPairID() + "_cleavaged.txt";
     }
     
     public static String getCleavageYFile(){

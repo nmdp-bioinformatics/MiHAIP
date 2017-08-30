@@ -47,6 +47,7 @@ public class GenerateOutput {
 
     private void processYgenes(List<String> yGeneList) {
 		List<String> idList = DatabaseUtil.getYtransIDs();
+		Translator translator = new Translator(); 
 		//remove duplicate id
 		for(String item : yGeneList){
 			if(idList.contains(item)){
@@ -56,8 +57,9 @@ public class GenerateOutput {
 		try {
 			PrintWriter yPrinter = new PrintWriter(new File(FileHelp.getYproteinFile()));
 			for(String id : idList){
-				yPrinter.print(">chrome Y |"+ id+ "|");
-				yPrinter.println(DatabaseUtil.getSequence(id));
+				yPrinter.println(">chrome Y |"+ id+ "|");
+				String seq = DatabaseUtil.getSequence(id);
+				yPrinter.println(translator.translate(seq, 0));
 			}
 			yPrinter.close();
 		} catch (FileNotFoundException e) {
