@@ -13,7 +13,7 @@ public class Configure {
     public static String hla_c2;
 	public static String tool = "/home/wwang/Tools/";
 	private static String output;
-	private static Sex sex;
+	private static Sex sex = Sex.MM;
     
     public static void setHLA(String hla) throws Exception{
     	String [] data = hla.split(",");

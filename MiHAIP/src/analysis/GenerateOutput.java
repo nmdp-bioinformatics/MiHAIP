@@ -24,7 +24,7 @@ public class GenerateOutput {
     private PrintWriter refDNA;
     private PrintWriter altDNA;
     private PrintWriter protienWriter;
-    private PrintWriter metaDataWriter;
+    //private PrintWriter metaDataWriter;
     private boolean replaceTwo = false;
 
     public void run(List<Transcript> geneList, List<String> yGeneList, String fileName) {
@@ -78,21 +78,21 @@ public class GenerateOutput {
         refDNA.close();
         altDNA.close();
         protienWriter.close();
-        metaDataWriter.close();
+        //metaDataWriter.close();
     }
 
     private void setPrinters() throws FileNotFoundException, URISyntaxException {
-    	File refDNAFile = new File(FileHelp.getDNAfilePath() + fileName + "_refDNA.txt");
+    	File refDNAFile = new File(fileName + "_refDNA.txt");
         refDNA = new PrintWriter(refDNAFile);
         
-        File altDNAFile = new File(FileHelp.getDNAfilePath() + fileName + "_altDNA.txt");
+        File altDNAFile = new File(fileName + "_altDNA.txt");
         altDNA = new PrintWriter(altDNAFile);
         
-        File mergeOutput = new File(FileHelp.getMergeOutput());
+        File mergeOutput = new File(fileName + "_protein.txt");
         protienWriter = new PrintWriter(mergeOutput);
         
-        File metaFile = new File(FileHelp.getMetaData());
-        metaDataWriter = new PrintWriter(metaFile);
+        //File metaFile = new File(FileHelp.getMetaData());
+        //metaDataWriter = new PrintWriter(metaFile);
 
     }
 
@@ -146,6 +146,8 @@ public class GenerateOutput {
             protienWriter.println(aachangePos.get(i)+1);
             int start = getStartIndex(aachangePos.get(i));
             int end = getEndIndex(refProtein, aachangePos.get(i));
+            
+            
             protienWriter.println(refProtein.substring(start, end + 1));
 
             protienWriter.print(fastaHeader);
@@ -153,36 +155,36 @@ public class GenerateOutput {
             protienWriter.println(altProtein.substring(start, end + 1));
 
             //print the meta data
-            metaDataWriter.print(gene.getChrome());
-            metaDataWriter.print(",");
-            metaDataWriter.print(gene.pos);
-            metaDataWriter.print(",");
-            metaDataWriter.print(sbRef.toString().charAt(DNAchangePos.get(i)-1));
-            metaDataWriter.print(",");
-            metaDataWriter.print(sbAlt.toString().charAt(DNAchangePos.get(i)-1));
-            metaDataWriter.print(",");
-            metaDataWriter.print(DNAchangePos.get(i));
-            metaDataWriter.print(",");
-            metaDataWriter.print(gene.transcriptID);
-            metaDataWriter.println(",");
-
-            if(end - start == 40){
-                metaDataWriter.println(20);
-            }else {
-                if(start == 0){
-                    metaDataWriter.println(aachangePos.get(i));
-                }else {
-                    metaDataWriter.println(aachangePos.get(i)-start);
-                }
-            }
-
+//            metaDataWriter.print(gene.getChrome());
+//            metaDataWriter.print(",");
+//            metaDataWriter.print(gene.pos);
+//            metaDataWriter.print(",");
+//            metaDataWriter.print(sbRef.toString().charAt(DNAchangePos.get(i)-1));
+//            metaDataWriter.print(",");
+//            metaDataWriter.print(sbAlt.toString().charAt(DNAchangePos.get(i)-1));
+//            metaDataWriter.print(",");
+//            metaDataWriter.print(DNAchangePos.get(i));
+//            metaDataWriter.print(",");
+//            metaDataWriter.print(gene.transcriptID);
+//            metaDataWriter.println(",");
+//
+//            if(end - start == 40){
+//                metaDataWriter.println(20);
+//            }else {
+//                if(start == 0){
+//                    metaDataWriter.println(aachangePos.get(i));
+//                }else {
+//                    metaDataWriter.println(aachangePos.get(i)-start);
+//                }
+//            }
+//
         }
 
 
     }
 
     private int getEndIndex(String refProtein, int i) {
-        int end = i + 20;
+        int end = i + 10;
         if(end >= refProtein.length()){
             return refProtein.length() - 1;
         }else {
@@ -191,7 +193,7 @@ public class GenerateOutput {
     }
 
     private int getStartIndex(int i) {
-        int start = i -20;
+        int start = i -10;
         if(start < 0){
             return 0;
         }else {

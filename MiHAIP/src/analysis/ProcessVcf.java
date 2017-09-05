@@ -37,16 +37,15 @@ public class ProcessVcf {
         String[] detail = trans[0].split("\\|");
         //Process the chrome information
         String[] basic = detail[0].split("\\t");
-        String chromeNumber = basic[0].substring(3);
-        int chrome = basic[0].charAt(3) - '0';
-        if(chrome == 40){
+        int chrome = 0;
+        if(basic[0].equals("X")){
             //convert X to 24
             chrome = 24;
-        } else if(chrome ==41) {
+        } else if(basic[0].equals("Y")) {
             //convert Y to 25
             chrome = 25;
         }else {
-            chrome = Integer.parseInt(chromeNumber);
+            chrome = Integer.parseInt(basic[0]);
         }
 
         int pos = Integer.parseInt(basic[1]);
@@ -65,7 +64,7 @@ public class ProcessVcf {
             preGene = gene;
             geneList.add(gene);
         }
-        gene.setNT(basic[3], basic[4]);
+        gene.setNT(basic[2], basic[3]);
         gene.setGeneID(detail[3]);
 
 
