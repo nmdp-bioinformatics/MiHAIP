@@ -45,6 +45,9 @@ public class ProcessVcf {
         } else if(chrome ==41) {
             //convert Y to 25
             chrome = 25;
+        }else if (chrome == 29){
+        	//convert M to 26
+        	chrome = 26;
         }else {
             chrome = Integer.parseInt(chromeNumber);
         }

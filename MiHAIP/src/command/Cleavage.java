@@ -14,7 +14,7 @@ public class Cleavage {
 	public void run(){
 		//create command line
 		StringBuilder sb = new StringBuilder();
-		sb.append(String.format("%s/netchop-3.1/bin/netChop -s -v 1", Configure.tool));
+		sb.append(String.format("%s/netchop-3.1/bin/netChop -s -v 1 ", Configure.tool));
 		sb.append(FileHelp.getMergeOutput());
 		System.out.println(sb.toString());
 		try {

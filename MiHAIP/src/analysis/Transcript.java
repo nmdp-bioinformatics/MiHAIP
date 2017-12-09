@@ -51,6 +51,8 @@ public class Transcript {
     		return ">chr"+"X" + "|" + pos + "|"+ geneID;
     	}else if(chrome == 25){
     		return ">chr"+"Y" + "|" + pos + "|"+ geneID;
+    	}else if(chrome == 26){
+    		return ">chr"+"M" + "|" + pos + "|"+ geneID;
     	}else{
     		return ">chr"+chrome + "|" + pos + "|"+ geneID;
     	}
