@@ -171,6 +171,13 @@ public class FileHelp {
 		return getOutput() + "predicted/"+ Configure.getPairID() + "_"+ Configure.removeComma(Configure.hla_c2)+getPos(Configure.hasTwoHla_c()) +".txt";
 	}
 	
+	public static String getRefProtienFile(String fileName){
+		return fileName + "_ref_protien.txt";
+	}
+	
+	public static String getAltProtienFile(String fileName){
+		return fileName + "_alt_protien.txt";
+	}
 	
 	private static String getPos(boolean two){
 		if(two){
