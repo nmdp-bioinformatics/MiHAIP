@@ -146,7 +146,7 @@ java -jar MiHAIP.jar -help
 ## 6. Test the Pipeline by Sample Data
 For testing the MiHA identification pipeline, you could use a pair of sample data from: /Volumes/bioxover/users/wwang/MiHAIP_released
 Copy all the executable programs (netChop-3.1, netMHCpan-3.0, RTG.jar and snpEff.jar) into the directory ./MiHAIP1.4.5/Tools.
-Copy the input files into ./path/to/input. Caution: the input files should include the .vcf.gz and index file .vcf.gz.tbi
+Copy the input files into ./path/to/input. Please make sure the index file(.vcf.gz.tbi) of vcf also included within the same folder.
 
 
 ## Note: 
@@ -155,7 +155,6 @@ The sex needs to be defined donor's sex follow recipient's sex, e.g. -sex MM, wh
 The HLA types should include all 6 alleles and separated by comma (there is no space in between alleles).
 -t argument points the path to tools box.
 Set the directory of output files by using -o   
-cp /Volumes/bioxover/users/wwang/MiHAIP_released/*vcf* /path/to/your/input/directory
 
 
 ```unix 
