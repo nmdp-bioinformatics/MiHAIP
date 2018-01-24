@@ -106,10 +106,13 @@ export NETMHCpan=/Path/to/Tools/netMHCpan-3.0
 ## 4. Build database
 
 
+cds.db is pre-built hg38 transcriptome and minor allele frequence (version:snp147common) database, please download by using the provided link: https://sourceforge.net/projects/mihaip/files/cds.db.zip/download
 
-cds.db is pre-built hg38 transcriptome and minor allele frequence (version:snp147common) database.
-
-Build you own minor allele frequency database by using lastest versions. 
+unzip the file:
+```unix
+unzip cds.db.zip
+```
+You could also build in minor allele frequence dataset by using lastest versions.
 Go to http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ download the SNP dataset. For example, snp147common
 
 ```unix 
@@ -127,16 +130,17 @@ java -jar ./MiHAIP1.4.5.jar/Tools/freq2db.jar filteredFile.txt
 ```
 
 
-## 5. Install MiHAIP
-a. Copy MiHAIP_1.4.5.tar.gz and cds.db from /Volumes/bioxover/users/wwang/MiHAIP_released
+## 5.Run MiHAIP
+a. Please make sure the clone of Github includes MiHAIP.jar
 
+Simply type in the command line:
 ```unix 
-tar -xvzf MiHAIP_1.4.5.tar.gz
+java -jar MiHAIP.jar
 ```
 
-b. Read documentation
+b. Read documentation:
 ```unix 
-java -jar MiHAIP1.4.5.jar -help
+java -jar MiHAIP.jar -help
 ```
 
 ## 6. Test the Pipeline by Sample Data
