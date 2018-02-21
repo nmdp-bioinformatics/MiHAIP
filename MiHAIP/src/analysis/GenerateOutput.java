@@ -23,7 +23,8 @@ public class GenerateOutput {
     private Translator translator = new Translator();
     private PrintWriter refDNA;
     private PrintWriter altDNA;
-    private PrintWriter protienWriter;
+    private PrintWriter refProteinWriter;
+    private PrintWriter altProteinWriter;
     private PrintWriter metaDataWriter;
     private boolean replaceTwo = false;
 
@@ -77,7 +78,8 @@ public class GenerateOutput {
     private void cleanup() {
         refDNA.close();
         altDNA.close();
-        protienWriter.close();
+        refProteinWriter.close();
+        altProteinWriter.close();
         metaDataWriter.close();
     }
 
@@ -88,8 +90,10 @@ public class GenerateOutput {
         File altDNAFile = new File(FileHelp.getDNAfilePath() + fileName + "_altDNA.txt");
         altDNA = new PrintWriter(altDNAFile);
         
-        File mergeOutput = new File(FileHelp.getMergeOutput());
-        protienWriter = new PrintWriter(mergeOutput);
+        File refProtein = new File(FileHelp.getRefProtein());
+        File altProtein = new File(FileHelp.getAltProtein());
+        refProteinWriter = new PrintWriter(refProtein);
+        altProteinWriter = new PrintWriter(refProteinWriter);
         
         File metaFile = new File(FileHelp.getMetaData());
         metaDataWriter = new PrintWriter(metaFile);
@@ -142,15 +146,15 @@ public class GenerateOutput {
         String refProtein = translator.translate(sbRef.toString(), 0, new ArrayList<Integer>(aachangePos));
         String altProtein = translator.translate(sbAlt.toString(), 0, new ArrayList<Integer>(aachangePos));
         for(int i = 0; i< aachangePos.size(); i++){
-            protienWriter.print(fastaHeader);
-            protienWriter.println(aachangePos.get(i)+1);
+        	refProteinWriter.print(fastaHeader);
+        	refProteinWriter.println(aachangePos.get(i)+1);
             int start = getStartIndex(aachangePos.get(i));
             int end = getEndIndex(refProtein, aachangePos.get(i));
-            protienWriter.println(refProtein.substring(start, end + 1));
+            refProteinWriter.println(refProtein.substring(start, end + 1));
 
-            protienWriter.print(fastaHeader);
-            protienWriter.println(aachangePos.get(i)+1);
-            protienWriter.println(altProtein.substring(start, end + 1));
+            altProteinWriter.print(fastaHeader);
+            altProteinWriter.println(aachangePos.get(i)+1);
+            altProteinWriter.println(altProtein.substring(start, end + 1));
 
             //print the meta data
             metaDataWriter.print(gene.getChrome());
@@ -166,8 +170,8 @@ public class GenerateOutput {
             metaDataWriter.print(gene.transcriptID);
             metaDataWriter.println(",");
 
-            if(end - start == 40){
-                metaDataWriter.println(20);
+            if(end - start == 20){
+                metaDataWriter.println(10);
             }else {
                 if(start == 0){
                     metaDataWriter.println(aachangePos.get(i));
@@ -182,7 +186,7 @@ public class GenerateOutput {
     }
 
     private int getEndIndex(String refProtein, int i) {
-        int end = i + 20;
+        int end = i + 10;
         if(end >= refProtein.length()){
             return refProtein.length() - 1;
         }else {
@@ -191,7 +195,7 @@ public class GenerateOutput {
     }
 
     private int getStartIndex(int i) {
-        int start = i -20;
+        int start = i -10;
         if(start < 0){
             return 0;
         }else {

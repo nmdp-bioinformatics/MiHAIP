@@ -12,6 +12,7 @@ import command.Filter;
 import command.Merge;
 import command.NetMHCpan;
 import command.SnpEff;
+import command.WindowSlider;
 import command.launchAff;
 import command.test;
 import util.FileHelp;
@@ -119,10 +120,11 @@ public class Launcher {
             new SnpEff().run();
             new Filter().run();
             new Merge().run();
-            new Cleavage().run();
-            new Chop().run();
-            new NetMHCpan().run();
-            new launchAff().run();
+            new WindowSlider().run();
+            //new Cleavage().run();
+            //new Chop().run();
+            //new NetMHCpan().run();
+            //new launchAff().run();
         }
        
     }
