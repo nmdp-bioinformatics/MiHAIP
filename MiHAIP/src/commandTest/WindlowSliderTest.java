@@ -25,7 +25,7 @@ public class WindlowSliderTest {
 	public void testSeq() {
 		WindowSlider wd = new WindowSlider();
 		List<String> data = wd.slide("abcdefghijklmn", 8);
-		assertEquals("abcdefg", data.get(0));
+		assertEquals("abcdefgh", data.get(0));
 		assertEquals("bcdefghi", data.get(1));
 		assertEquals("cdefghij", data.get(2));
 		assertEquals("defghijk", data.get(3));
