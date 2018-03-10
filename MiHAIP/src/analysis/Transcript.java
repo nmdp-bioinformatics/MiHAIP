@@ -12,6 +12,7 @@ public class Transcript {
     String ref;
     String alt;
     String transcriptID;
+    Patient patient;
     public HashMap<Integer, String> change = new HashMap<>();
 
     public Transcript(String transcriptID){
@@ -23,6 +24,7 @@ public class Transcript {
         this.pos = t.pos;
         this.ref = t.ref;
         this.alt = t.alt;
+        this.patient = t.patient;
     }
 
     public void addPos(int pos, String NT){
@@ -46,15 +48,18 @@ public class Transcript {
     public void setChromePos(int i){
         pos = i;
     }
+    public void setPatient(Patient p){
+    	this.patient = p;
+    }
     public String getInfo(){
     	if(chrome == 24){
-    		return ">chr"+"X" + "|" + pos + "|"+ geneID;
+    		return ">chr"+"X" + "|" + pos + "|"+ geneID + "|" + patient.getID();
     	}else if(chrome == 25){
-    		return ">chr"+"Y" + "|" + pos + "|"+ geneID;
+    		return ">chr"+"Y" + "|" + pos + "|"+ geneID+ "|" + patient.getID();
     	}else if(chrome == 26){
-    		return ">chr"+"M" + "|" + pos + "|"+ geneID;
+    		return ">chr"+"M" + "|" + pos + "|"+ geneID+ "|" + patient.getID();
     	}else{
-    		return ">chr"+chrome + "|" + pos + "|"+ geneID;
+    		return ">chr"+chrome + "|" + pos + "|"+ geneID+ "|" + patient.getID();
     	}
         
     }

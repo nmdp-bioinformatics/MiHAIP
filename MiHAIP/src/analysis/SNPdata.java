@@ -1,14 +1,17 @@
 package analysis;
 
+import java.util.Arrays;
+
 /**
  * Created by wwang on 9/7/16.
  */
-public class SNPdata {
+public class SNPdata  implements Comparable<SNPdata>{
     public int chrome;
     public int pos;
     public String ref;
     public String alt;
     public String data;
+    public Patient patient;
 
     public SNPdata(String s){
         String[] trans = s.split(",");
@@ -29,4 +32,39 @@ public class SNPdata {
         this.alt = basic[4];
         data = s;
     }
+    
+    public void setPatient(Patient p){
+    	patient = p;
+    	data += "|"+ patient.getID();
+    }
+
+	public void swap() {
+		String temp = ref;
+		ref = alt;
+		alt = temp;
+	    update();
+	}
+
+	public void update() {
+		String[] trans = data.split("\\t");
+		trans[3] = ref;
+		trans[4] = alt;
+		StringBuilder sb = new StringBuilder();
+		for(String s : trans){
+			sb.append(s);
+			sb.append("	");
+		}
+		data = sb.toString();
+		
+	}
+
+	@Override
+	public int compareTo(SNPdata o) {
+		if(this.chrome == o.chrome){
+			return Integer.compare(this.pos, o.pos);
+		}else{
+			return Integer.compare(this.chrome, o.chrome);
+		}
+	}
+	
 }

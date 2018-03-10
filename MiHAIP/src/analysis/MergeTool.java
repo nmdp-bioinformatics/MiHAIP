@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class MergeTool {
     Scanner snFp;
     File output;
     List<List<SNPdata>> fnData = new ArrayList<List<SNPdata>>() ;
+    List<SNPdata> mergeResult = new ArrayList<SNPdata>();
     public void merge(File fn, File fp, File output){
         this.output = output;
         for(int i = 0; i< 24; i++){
@@ -23,11 +25,21 @@ public class MergeTool {
         setScanner(fn, fp);
         readFn();
         readFp();
+        insertLeftOverFn();
         writeMegerFile();
         fnData.clear();
     }
 
-    public List<List<SNPdata>> getMergeList(){
+    private void insertLeftOverFn() {
+    	for(int i = 0; i< 24; i++){
+            for(SNPdata data : fnData.get(i)){
+            	mergeResult.add(data);
+            }
+        }
+		
+	}
+
+	public List<List<SNPdata>> getMergeList(){
         return fnData;
     }
 
@@ -39,11 +51,10 @@ public class MergeTool {
             e.printStackTrace();
         }
         if(pw != null){
-            for(List<SNPdata> list : fnData){
-                for(SNPdata item : list){
+        	Collections.sort(mergeResult);
+                for(SNPdata item : mergeResult){
                     pw.println(item.data);
                 }
-            }
         }
         pw.close();
     }
@@ -76,21 +87,27 @@ public class MergeTool {
         int index = 0;
         for(int i = 0; i < chrome.size(); i++){
             SNPdata ref = chrome.get(i);
+            data.setPatient(Patient.Donor);
             if(ref.pos == data.pos){
-                if(ref.alt.equals(data.alt)){
-                    delete = true;
-                    index = i;
-                }else {
-                    ref.ref = data.alt;
-                    return;
+            	index = i;
+            	 delete = true;
+                if(!ref.alt.equals(data.alt)){
+                	data.ref = ref.alt;
+                	data.swap();
+                	 mergeResult.add(data);
+                	 chrome.remove(index);
+                	 return;
                 }
             }
         }
+        
         if(delete){
             chrome.remove(index);
-        }else {
-            chrome.add(data);
-        }
+            
+        } 
+        data.swap();
+        mergeResult.add(data);
+        
     }
 
    
@@ -118,6 +135,7 @@ public class MergeTool {
      */
     private void addFnData(String line){
         SNPdata data = new SNPdata(line);
+        data.setPatient(Patient.Reciepor);
         int index = data.chrome - 1;
         fnData.get(index).add(data);
 
@@ -130,5 +148,13 @@ public class MergeTool {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static void main(String[] args){
+    	File fn = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/555/555_fn_ann_msv.vcf");
+    	File fp = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/555/555_fp_ann_msv.vcf");
+    	File output = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/555/merge_test.txt");
+    	MergeTool mt = new MergeTool();
+    	mt.merge(fn, fp, output);
     }
 }
