@@ -27,6 +27,7 @@ public class GenerateOutput {
     private PrintWriter altProteinWriter;
     private PrintWriter metaDataWriter;
     private boolean replaceTwo = false;
+    private PrintWriter protienWriter;
 
     public void run(List<Transcript> geneList, List<String> yGeneList, String fileName) {
         this.fileName = fileName;
@@ -81,6 +82,8 @@ public class GenerateOutput {
         refProteinWriter.close();
         altProteinWriter.close();
         metaDataWriter.close();
+        protienWriter.close();
+        
     }
 
     private void setPrinters() throws FileNotFoundException, URISyntaxException {
@@ -90,17 +93,24 @@ public class GenerateOutput {
         File altDNAFile = new File(FileHelp.getDNAfilePath() + fileName + "_altDNA.txt");
         altDNA = new PrintWriter(altDNAFile);
         
-        File refProtein = new File(FileHelp.getRefProtein());
-        File altProtein = new File(FileHelp.getAltProtein());
+        File refProtein = new File(FileHelp.getDonorProtein());
+        File altProtein = new File(FileHelp.getRecipientProtein());
         refProteinWriter = new PrintWriter(refProtein);
-        altProteinWriter = new PrintWriter(refProteinWriter);
+        altProteinWriter = new PrintWriter(altProtein);
         
         File metaFile = new File(FileHelp.getMetaData());
         metaDataWriter = new PrintWriter(metaFile);
+        
+        File proteinFile = new File(FileHelp.getMergeOutput());
+        protienWriter = new PrintWriter(proteinFile);
 
     }
 
     private void processGene(Transcript gene) {
+    	if(gene == null){
+    		System.out.println("gene is null");
+    		return;
+    	}
         String dna = DatabaseUtil.getSequence(gene.transcriptID);
         Iterator<Integer> it = gene.change.keySet().iterator();
         StringBuilder sbRef = new StringBuilder(dna);
@@ -155,6 +165,14 @@ public class GenerateOutput {
             altProteinWriter.print(fastaHeader);
             altProteinWriter.println(aachangePos.get(i)+1);
             altProteinWriter.println(altProtein.substring(start, end + 1));
+            
+            protienWriter.print(fastaHeader);
+            protienWriter.println(aachangePos.get(i)+1);
+            protienWriter.println(refProtein.substring(start, end + 1));
+
+            protienWriter.print(fastaHeader);
+            protienWriter.println(aachangePos.get(i)+1);
+            protienWriter.println(altProtein.substring(start, end + 1));
 
             //print the meta data
             metaDataWriter.print(gene.getChrome());

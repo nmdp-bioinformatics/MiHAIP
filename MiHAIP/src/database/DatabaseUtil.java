@@ -153,6 +153,7 @@ public class DatabaseUtil
 		try {
 			rs = connection.createStatement().executeQuery(sql);
 		} catch (SQLException e) {
+			System.out.println(sql);
 			e.printStackTrace();
 		}
 		return  rs;

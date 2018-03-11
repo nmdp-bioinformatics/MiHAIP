@@ -11,7 +11,6 @@ import nmdp.Configure;
  */
 public class FileHelp {
     public static String getOutput() {
-    	//System.out.println(getRoot() + "/output/");
         return getRoot() + "/output/";
     }
 
@@ -99,33 +98,23 @@ public class FileHelp {
     }
     
     public static String getMergeOutput(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_protien.fasta";
+    	return FileHelp.getProteinPath() + Configure.getPairID() + "_protein.fasta";
     }
     
-    public static String getAltProtein(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_alt_protien.fasta";
+    public static String getRecipientProtein(){
+    	return FileHelp.getProteinPath() + Configure.getPairID() + "_recipient_protien.fasta";
     }
     
-    public static String getAltProteinSlice(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_alt_slice.fasta";
+    public static String getProteinSlice(){
+    	return FileHelp.getProteinPath() + Configure.getPairID() + "_protein_slice.pep";
     }
-    public static String getAltProteinSliceMeta(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_alt_slice_meta.fasta";
-    }
-    
-    public static String getRefProtein(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_ref_protien.fasta";
+    public static String getProteinSliceMeta(){
+    	return FileHelp.getProteinPath() + Configure.getPairID() + "_protein_slice_meta.fasta";
     }
     
-    public static String getRefSlice(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_ref_slice.fasta";
+    public static String getDonorProtein(){
+    	return FileHelp.getProteinPath() + Configure.getPairID() + "_donor_protien.fasta";
     }
-    
-    public static String getRefSliceMeta(){
-    	return FileHelp.getProteinPath() + Configure.getPairID() + "_ref_slice_meta.fasta";
-    }
-    
-    
     
     public static String getMetaData(){
     	return FileHelp.getMetaFilePath() + Configure.getPairID() + "_meta.txt";

@@ -53,13 +53,13 @@ public class Transcript {
     }
     public String getInfo(){
     	if(chrome == 24){
-    		return ">chr"+"X" + "|" + pos + "|"+ geneID + "|" + patient.getID();
+    		return ">chr"+"X" + "|" + pos + "|"+ geneID;
     	}else if(chrome == 25){
-    		return ">chr"+"Y" + "|" + pos + "|"+ geneID+ "|" + patient.getID();
+    		return ">chr"+"Y" + "|" + pos + "|"+ geneID;
     	}else if(chrome == 26){
-    		return ">chr"+"M" + "|" + pos + "|"+ geneID+ "|" + patient.getID();
+    		return ">chr"+"M" + "|" + pos + "|"+ geneID;
     	}else{
-    		return ">chr"+chrome + "|" + pos + "|"+ geneID+ "|" + patient.getID();
+    		return ">chr"+chrome + "|" + pos + "|"+ geneID;
     	}
         
     }

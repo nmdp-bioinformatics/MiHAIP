@@ -16,13 +16,21 @@ import util.FileHelp;
 
 public class NetMHCpan {
 	public void run(){
+		if(Configure.windowSlide){
+			executeFile(FileHelp.getProteinSlice());
+		}else{
+			executeFile(FileHelp.getChopFile());
+		}
+	}
+	
+	private void executeFile(String input){
 		//create the linux command line to parallel process netMHCpan
 		StringBuilder sb = new StringBuilder();
 		sb.append("#!/bin/bash\n");
 		sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 		sb.append(Configure.hla_a1);
 		sb.append(" ");
-		sb.append(FileHelp.getChopFile());
+		sb.append(input);
 		sb.append(" > ");
 		sb.append(FileHelp.getAffFile_A1());
 		sb.append(" &\n");
@@ -32,7 +40,7 @@ public class NetMHCpan {
 			sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 			sb.append(Configure.hla_a2);
 			sb.append(" ");
-			sb.append(FileHelp.getChopFile());
+			sb.append(input);
 			sb.append(" > ");
 			sb.append(FileHelp.getAffFile_A2());
 			sb.append(" &\n");
@@ -41,7 +49,7 @@ public class NetMHCpan {
 		sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 		sb.append(Configure.hla_b1);
 		sb.append(" ");
-		sb.append(FileHelp.getChopFile());
+		sb.append(input);
 		sb.append(" > ");
 		sb.append(FileHelp.getAffFile_B1());
 		sb.append(" &\n");
@@ -50,7 +58,7 @@ public class NetMHCpan {
 			sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 			sb.append(Configure.hla_b2);
 			sb.append(" ");
-			sb.append(FileHelp.getChopFile());
+			sb.append(input);
 			sb.append(" > ");
 			sb.append(FileHelp.getAffFile_B2());
 			sb.append(" &\n");
@@ -62,7 +70,7 @@ public class NetMHCpan {
 			sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 			sb.append(Configure.hla_c1);
 			sb.append(" ");
-			sb.append(FileHelp.getChopFile());
+			sb.append(input);
 			sb.append(" > ");
 			sb.append(FileHelp.getAffFile_C1());
 			sb.append(" &\n");
@@ -70,7 +78,7 @@ public class NetMHCpan {
 			sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 			sb.append(Configure.hla_c2);
 			sb.append(" ");
-			sb.append(FileHelp.getChopFile());
+			sb.append(input);
 			sb.append(" > ");
 			sb.append(FileHelp.getAffFile_C2());
 			sb.append(" &\nwait");
@@ -78,7 +86,7 @@ public class NetMHCpan {
 			sb.append(String.format("%s/netMHCpan-3.0/netMHCpan -p -a ", Configure.tool));
 			sb.append(Configure.hla_c1);
 			sb.append(" ");
-			sb.append(FileHelp.getChopFile());
+			sb.append(input);
 			sb.append(" > ");
 			sb.append(FileHelp.getAffFile_C1());
 			sb.append(" &\nwait");
@@ -103,5 +111,4 @@ public class NetMHCpan {
 			e.printStackTrace();
 		}
 	}
-	
 }

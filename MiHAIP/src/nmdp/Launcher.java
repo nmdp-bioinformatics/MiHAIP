@@ -36,6 +36,8 @@ public class Launcher {
     private static final String STEP = "-s";
     private static final String SEX = "-sex";
     private static final String HELP = "-h";
+    private static final String WINDOW = "-w";
+    
     private static boolean showHelp;
     private static String helpInfo = "Note: \n"
     		+ "1) Before running this, Please make sure all the required applications and database are set properly.\n"
@@ -120,11 +122,14 @@ public class Launcher {
             new SnpEff().run();
             new Filter().run();
             new Merge().run();
-            new WindowSlider().run();
-            //new Cleavage().run();
-            //new Chop().run();
-            //new NetMHCpan().run();
-            //new launchAff().run();
+            if(Configure.windowSlide){
+            	new WindowSlider().run();
+            }else{
+            	new Cleavage().run();
+                new Chop().run();
+            }
+            new NetMHCpan().run();
+            new launchAff().run();
         }
        
     }
@@ -132,6 +137,13 @@ public class Launcher {
 
 
     private static void getParameters(String[] args) {
+    	//get window slide option
+    	for (int i = 0; i < args.length; i++) {
+            if (args[i].equals(WINDOW)) {
+                Configure.setWindowSlide();
+                break;
+            }
+        }
     	//get help option
     	for (int i = 0; i < args.length; i++) {
             if (args[i].equals(HELP)) {

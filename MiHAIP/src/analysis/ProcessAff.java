@@ -38,9 +38,11 @@ public class ProcessAff {
                 break;
             }else {
             	String[] data = sn.nextLine().split(" +");
-            	for(String item : data){
-            		pw.print(item);
-            		pw.print(",");
+            	for(int k = 0; k< data.length; k++){
+            		pw.print(data[k]);
+            		if(k != data.length-1){
+            			pw.print(",");
+            		}
             	}
                 pw.println();
             }
@@ -116,6 +118,8 @@ public class ProcessAff {
 				sb.append(",");
 				sb.append(data[5]);
 				sb.append(",");
+				//print donor or recipient
+				sb.append(data[7]);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -138,6 +142,8 @@ public class ProcessAff {
 			sb.append(",");
 			sb.append(data[5]);
 			sb.append(",");
+			//print donor or recipient
+			sb.append(data[7]);
     		
     	}
     	return sb.toString();

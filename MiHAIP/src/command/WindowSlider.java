@@ -10,21 +10,33 @@ import java.util.Scanner;
 import util.FileHelp;
 
 public class WindowSlider {
+	PrintWriter metaWriter;
+	PrintWriter dataWriter;
 	public void run() throws FileNotFoundException{
-		File refProtein = new File(FileHelp.getRefProtein());
-		File altProtein = new File(FileHelp.getAltProtein());
-		
-		processFile(refProtein, new File(FileHelp.getRefSliceMeta()), new File(FileHelp.getRefSlice()));
-		processFile(altProtein, new File(FileHelp.getAltProteinSliceMeta()), new File(FileHelp.getRefSlice()));
-		
+		File refProtein = new File(FileHelp.getDonorProtein());
+		File altProtein = new File(FileHelp.getRecipientProtein());
+		setPrinters();
+		processFile(refProtein, "Donor");
+		processFile(altProtein, "Recipient");
+		metaWriter.close();
+		dataWriter.close();
 	}
 	
-	private void processFile(File input, File meta, File output) throws FileNotFoundException{
+	private void setPrinters() throws FileNotFoundException {
+		metaWriter = new PrintWriter(FileHelp.getChopMetaData());
+		dataWriter = new PrintWriter(FileHelp.getProteinSlice());
+	}
+
+	private void processFile(File input, String header) throws FileNotFoundException{
 		Scanner sn = new Scanner(input);
-		PrintWriter metaWriter = new PrintWriter(meta);
-		PrintWriter dataWriter = new PrintWriter(output);
+		Scanner metaDataScanner = new Scanner(new File(FileHelp.getMetaData()));
 		while(sn.hasNextLine()){
-			String Header = sn.nextLine();
+			//skip fasta header
+			sn.nextLine();
+			String Header = metaDataScanner.nextLine();
+			//skip location line
+			metaDataScanner.nextLine();
+			Header += ","+header + ",";
 			String seq = sn.nextLine();
 			List<String> slices = slide(seq, 8);
 			for(String data : slices){
@@ -48,8 +60,7 @@ public class WindowSlider {
 			}
 		}
 		sn.close();
-		metaWriter.close();
-		dataWriter.close();
+		metaDataScanner.close();
 	}
 	
 	public List<String> slide(String seq, int windowSize){

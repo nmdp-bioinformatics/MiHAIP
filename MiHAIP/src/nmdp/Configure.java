@@ -14,6 +14,7 @@ public class Configure {
 	public static String tool = "/home/wwang/Tools/";
 	private static String output;
 	private static Sex sex;
+	public static boolean windowSlide = false;
     
     public static void setHLA(String hla) throws Exception{
     	String [] data = hla.split(",");
@@ -67,7 +68,11 @@ public class Configure {
     }
     
     public static String getOutputFolder(){
-    	return output;
+    	if(output == null){
+    		return ".";
+    	}else{
+    		return output;
+    	}
     }
     public static Sex getSex(){
     	return sex;
@@ -97,5 +102,9 @@ public class Configure {
     
     public static boolean hasTwoHla_c(){
     	return hla_c2 != null;
+    }
+    
+    public static void setWindowSlide(){
+    	windowSlide = true;
     }
 }
