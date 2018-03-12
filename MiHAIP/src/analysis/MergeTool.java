@@ -87,7 +87,6 @@ public class MergeTool {
         int index = 0;
         for(int i = 0; i < chrome.size(); i++){
             SNPdata ref = chrome.get(i);
-            data.setPatient(Patient.Donor);
             if(ref.pos == data.pos){
             	index = i;
             	 delete = true;
@@ -135,7 +134,6 @@ public class MergeTool {
      */
     private void addFnData(String line){
         SNPdata data = new SNPdata(line);
-        data.setPatient(Patient.Reciepor);
         int index = data.chrome - 1;
         fnData.get(index).add(data);
 

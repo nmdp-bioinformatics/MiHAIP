@@ -69,10 +69,19 @@ public class WindowSlider {
 			result.add(seq);
 		}else{
 			for(int i = 0; i <= seq.length() - windowSize; i++){
-				result.add(seq.substring(i,i+windowSize));
+				String slice = seq.substring(i,i+windowSize);
+				if(containsVar(slice)){
+					result.add(slice);
+				}
+				
 			}
 		}
 		return result;
+	}
+
+	private boolean containsVar(String slice) {
+		String changeCase = slice.toUpperCase();
+		return !slice.equals(changeCase);
 	}
 
 }

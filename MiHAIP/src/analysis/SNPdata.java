@@ -11,7 +11,7 @@ public class SNPdata  implements Comparable<SNPdata>{
     public String ref;
     public String alt;
     public String data;
-    public Patient patient;
+
 
     public SNPdata(String s){
         String[] trans = s.split(",");
@@ -32,11 +32,7 @@ public class SNPdata  implements Comparable<SNPdata>{
         this.alt = basic[4];
         data = s;
     }
-    
-    public void setPatient(Patient p){
-    	patient = p;
-    	data += "|"+ patient.getID();
-    }
+   
 
 	public void swap() {
 		String temp = ref;

@@ -68,13 +68,13 @@ public class Clevage {
         for(String fragment : noRepeat1){
             //pw.println(">" + pairData.id + "|D");
             pw.println(fragment);
-            chopMetaWriter.println(headerData.get(i) + "|Dornor");
+            chopMetaWriter.println(headerData.get(i) + ",Dornor");
         }
 
         for(String fragment : noRepeat2){
             //pw.println(">" + pairData.id + "|R");
             pw.println(fragment);
-            chopMetaWriter.println(headerData.get(i) + "|Recipient");
+            chopMetaWriter.println(headerData.get(i) + ",Recipient");
         }
 
     }

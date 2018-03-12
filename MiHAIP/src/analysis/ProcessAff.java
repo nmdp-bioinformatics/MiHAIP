@@ -118,8 +118,11 @@ public class ProcessAff {
 				sb.append(",");
 				sb.append(data[5]);
 				sb.append(",");
-				//print donor or recipient
-				sb.append(data[7]);
+				if(data.length > 7){
+					//print donor or recipient
+					sb.append(data[7]);
+				}
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -142,8 +145,10 @@ public class ProcessAff {
 			sb.append(",");
 			sb.append(data[5]);
 			sb.append(",");
-			//print donor or recipient
-			sb.append(data[7]);
+			if(data.length > 7){
+				//print donor or recipient
+				sb.append(data[7]);
+			}
     		
     	}
     	return sb.toString();
