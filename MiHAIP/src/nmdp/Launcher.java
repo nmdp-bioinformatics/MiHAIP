@@ -51,9 +51,9 @@ public class Launcher {
     		+ "-sc    Sex combination, first letter indicates Donor's sex and second letter indicates Recipient's sex (For example: FM means Female donor to Male recipient)\n"
     		+ "-t     Directory to the tools box\n"
     		+ "-o     Dirctory to the output\n"
-    		+ "-s     Test the pipline step by step\n"
+    		+ "-s     Test and validate the pipline step by step\n"
     		+ "-v     Print the version information and quit\n";
-   
+    
    
     private static HashMap<String, String> paramMap = new HashMap<>();
 

@@ -56,9 +56,9 @@ public class Merge {
 		DatabaseUtil.connectDatabase();
         Configure.setPairID("555");
 		
-//		MergeTool mt = new MergeTool();
-//		File input1 = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/555/555_fn_ann_msv.vcf");
-//		File input2 = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/555/555_fn_ann_msv.vcf");
+		MergeTool mt = new MergeTool();
+		File input1 = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/missenseOut/2_fn_ann_msv.vcf");
+		File input2 = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/missenseOut/2_fp_ann_msv.vcf");
 //		String name = input1.getName();
 //		if(input1.getName().length() < 3 || input2.getName().length() < 3){
 //			System.out.println("invalid input file name");
@@ -66,10 +66,10 @@ public class Merge {
 //			return;
 //		}
 //	
-//		File output = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/2/2.txt");
-//		System.out.println(output.getName());
-//		mt.merge(input1, input2, output);
-//		System.out.println("merge finished");
+		File output = new File("/Users/wwang/Desktop/MiHAIP_validation_2018/missenseOut/2_fnfp.txt");
+		System.out.println(output.getName());
+		mt.merge(input1, input2, output);
+		System.out.println("merge finished");
 //		ProcessVcf pv = new ProcessVcf();
 //		pv.run(output);
 //		System.out.println("process vcf finished");

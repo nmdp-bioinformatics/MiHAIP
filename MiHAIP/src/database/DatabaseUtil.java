@@ -163,6 +163,8 @@ public class DatabaseUtil
 	public static String getSequence(String id){
 		Statement stmt = null;
 		String seq = "";
+		//remove the version of transcript id
+		id = id.split("\\.")[0];
 		try {
 			stmt = connection.createStatement();
 		} catch (SQLException e) {
