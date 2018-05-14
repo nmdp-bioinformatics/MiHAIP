@@ -84,7 +84,7 @@ public class MergeTool {
         SNPdata data = new SNPdata(line);
         List<SNPdata> chrome = fnData.get(data.chrome - 1);
         boolean delete = false;
-        boolean duplicate = true;
+        boolean duplicate = false;
         int index = 0;
         for(int i = 0; i < chrome.size(); i++){
             SNPdata ref = chrome.get(i);
@@ -92,12 +92,14 @@ public class MergeTool {
             	index = i;
             	 delete = true;
                 if(!ref.alt.equals(data.alt)){
-                	duplicate = false;
                 	data.ref = ref.alt;
                 	data.swap();
-                	 mergeResult.add(data);
-                	 chrome.remove(index);
-                	 return;
+                	mergeResult.add(data);
+                	chrome.remove(index);
+                	return;
+                }else{
+                	duplicate = true;
+                	break;
                 }
             }
         }
@@ -107,8 +109,8 @@ public class MergeTool {
             
         } 
         if(!duplicate){
-        	 data.swap();
-             mergeResult.add(data);
+        	data.swap();
+            mergeResult.add(data);
         }
     }
 
